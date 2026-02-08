@@ -3,11 +3,19 @@ import express from 'express'
 import { ethers } from 'ethers'
 import { Session } from '@0xsequence/auth'
 import { findSupportedNetwork, NetworkConfig } from '@0xsequence/network'
+import path from 'path'
+import { fileURLToPath } from 'url'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 const PORT = 3001
 const app = express()
 
 app.use(express.json())
+
+// Serve static files from the public directory
+app.use(express.static(path.join(__dirname, '..', 'public')))
 
 // Validation method to check if the provided address is a valid Ethereum address
 const isValidEthereumAddress = (address: any) => {

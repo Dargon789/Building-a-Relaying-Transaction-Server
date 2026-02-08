@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction Relay Server</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            min-height: 100vh;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+        .endpoint {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+        }
+        .endpoint-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #ffd700;
+        }
+        code {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+        .status {
+            display: inline-block;
+            background: #4ade80;
+            color: #064e3b;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        li:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Transaction Relay Server</h1>
+        <p class="subtitle">Server Side Transactions Boilerplate</p>
+        
+        <div style="margin: 20px 0;">
+            <span class="status">🟢 Server Running</span>
+        </div>
+
+        <div class="endpoint">
+            <div class="endpoint-title">Available Endpoints:</div>
+            <ul>
+                <li><strong>POST /mint</strong> - Mint collectible to a wallet address</li>
+                <li><strong>GET /</strong> - Server information (this page)</li>
+            </ul>
+        </div>
+
+        <div class="endpoint">
+            <div class="endpoint-title">Example cURL Command:</div>
+            <pre style="overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;">curl -X POST http://localhost:3001/mint \
+-H "Content-Type: application/json" \
+-d '{"walletAddress":"0x0365e0BcAd6D799b732ADB9673cB4C43688Bb450"}'</pre>
+        </div>
+
+        <p style="margin-top: 30px; opacity: 0.8; font-size: 0.9rem;">
+            This server relays transactions via the Sequence Transactions API. 
+            Built with Express.js and ethers.js.
+        </p>
+    </div>
+
+    <!-- Vercel Web Analytics -->
+    <script>
+        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
